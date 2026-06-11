@@ -1,0 +1,27 @@
+{
+  "title": "Heating Curve Simulator",
+  "entity": {
+    "number": {
+      "slope": {
+        "name": "Neigung"
+      },
+      "level": {
+        "name": "Niveau"
+      },
+      "room_setpoint": {
+        "name": "Raumtemperatur Soll"
+      }
+    }
+  },
+  "config": {
+    "step": {
+      "user": {
+        "title": "Heating Curve Simulator",
+        "description": "Erstellt Number- und Sensor-Entitäten zur Heizkurven-Simulation."
+      }
+    },
+    "abort": {
+      "already_configured": "Die Integration ist bereits eingerichtet."
+    }
+  }
+}
