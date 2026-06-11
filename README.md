@@ -1,44 +1,36 @@
-# Heating Curve Simulator for Home Assistant
+# Heating Curve Simulator v2
 
-Diese Custom Integration legt drei `input_number`-Entitäten und sieben berechnete Sensoren an.
+Diese Version ist als moderne Home-Assistant-Custom-Integration aufgebaut und benötigt **keine** Einträge in der `configuration.yaml`.
 
-## Angelegte Input-Entitäten
-- `input_number.heating_curve_simulator_slope` → Neigung (0.0 bis 2.0, Schrittweite 0.1)
-- `input_number.heating_curve_simulator_level` → Niveau (-10 bis 10, Schrittweite 1)
-- `input_number.heating_curve_simulator_room_setpoint` → Raumtemperatur Soll (15 bis 30 °C, Schrittweite 1)
+## Funktionen
+- 3 automatisch erzeugte `number`-Entitäten
+- 7 automatisch erzeugte `sensor`-Entitäten
+- Einrichtung über **Settings → Devices & Services → Add Integration**
+- Werte der Number-Entitäten werden wiederhergestellt
+
+## Angelegte Number-Entitäten
+- `number.heating_curve_simulator_neigung`
+- `number.heating_curve_simulator_niveau`
+- `number.heating_curve_simulator_raumtemperatur_soll`
 
 ## Angelegte Sensoren
-- `sensor.heating_curve_simulator_flow_temp_minus_10c`
-- `sensor.heating_curve_simulator_flow_temp_minus_5c`
-- `sensor.heating_curve_simulator_flow_temp_0c`
-- `sensor.heating_curve_simulator_flow_temp_5c`
-- `sensor.heating_curve_simulator_flow_temp_10c`
-- `sensor.heating_curve_simulator_flow_temp_15c`
-- `sensor.heating_curve_simulator_flow_temp_20c`
+- Soll Vorlauftemperatur bei -10°C Außentemperatur
+- Soll Vorlauftemperatur bei -5°C Außentemperatur
+- Soll Vorlauftemperatur bei 0°C Außentemperatur
+- Soll Vorlauftemperatur bei 5°C Außentemperatur
+- Soll Vorlauftemperatur bei 10°C Außentemperatur
+- Soll Vorlauftemperatur bei 15°C Außentemperatur
+- Soll Vorlauftemperatur bei 20°C Außentemperatur
 
-## Berechnungsformel
+## Installation
+1. Ordner `custom_components/heating_curve_simulator` nach `<config>/custom_components/` kopieren.
+2. Home Assistant neu starten.
+3. Unter **Einstellungen → Geräte & Dienste → Integration hinzufügen** nach `Heating Curve Simulator` suchen.
+4. Integration hinzufügen.
+
+## Formel
 ```jinja2
 {{ RaumtemperaturSoll + niveau - neigung * dar * (1.4347 + 0.021 * dar + 247.9e-6 * dar * dar)) | round(1) }}
 ```
 
-Dabei gilt:
-- `dar = aussentemperatur - RaumtemperaturSoll`
-
-## Installation
-1. Ordner `custom_components/heating_curve_simulator` nach `<config>/custom_components/` kopieren.
-2. In `configuration.yaml` ergänzen:
-
-```yaml
-input_number:
-  - platform: heating_curve_simulator
-
-sensor:
-  - platform: heating_curve_simulator
-```
-
-3. Home Assistant neu starten.
-
-## Hinweise
-- Die Werte der drei Input-Entitäten werden wiederhergestellt.
-- Die Sensoren aktualisieren sich automatisch bei jeder Änderung der Inputs.
-- Die Sensoren liefern zusätzlich Attribute für `dar`, Außentemperatur und verwendete Parameter.
+`dar = aussentemperatur - RaumtemperaturSoll`
