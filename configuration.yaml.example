@@ -1,6 +1,0 @@
-# configuration.yaml
-input_number:
-  - platform: heating_curve_simulator
-
-sensor:
-  - platform: heating_curve_simulator
