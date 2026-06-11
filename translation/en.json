@@ -1,0 +1,27 @@
+{
+  "title": "Heating Curve Simulator",
+  "entity": {
+    "number": {
+      "slope": {
+        "name": "Slope"
+      },
+      "level": {
+        "name": "Level"
+      },
+      "room_setpoint": {
+        "name": "Room setpoint"
+      }
+    }
+  },
+  "config": {
+    "step": {
+      "user": {
+        "title": "Heating Curve Simulator",
+        "description": "Creates number and sensor entities for heating curve simulation."
+      }
+    },
+    "abort": {
+      "already_configured": "The integration is already configured."
+    }
+  }
+}
