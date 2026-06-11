@@ -1,6 +1,9 @@
-# Heating Curve Simulator v2
+<h2>I am not a developer, so this is just for fun and for anyone who might have use of it. </h2>
+<p>Anyone who would like to support, please contact me.</p>
 
-Diese Version ist als moderne Home-Assistant-Custom-Integration aufgebaut und benötigt **keine** Einträge in der `configuration.yaml`.
+# Heating Curve Simulator
+
+Diese Version ist als Home-Assistant-Custom-Integration aufgebaut und benötigt **keine** Einträge in der `configuration.yaml`.
 
 ## Funktionen
 - 3 automatisch erzeugte `number`-Entitäten
