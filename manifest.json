@@ -1,0 +1,9 @@
+{
+  "domain": "heating_curve_simulator",
+  "name": "Heating Curve Simulator",
+  "version": "1.0.0",
+  "documentation": "https://example.invalid/heating_curve_simulator",
+  "issue_tracker": "https://example.invalid/heating_curve_simulator/issues",
+  "codeowners": [],
+  "iot_class": "local_polling"
+}
