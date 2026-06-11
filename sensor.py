@@ -37,7 +37,7 @@ class HeatingCurveFlowTemperatureSensor(HeatingCurveSimulatorEntity, SensorEntit
         super().__init__(entry_id)
         self.hass = hass
         self._outdoor_temperature = outdoor_temperature
-        self._attr_name = f"Soll Vorlauftemperatur bei {outdoor_temperature}°C Außentemperatur"
+        self._attr_name = f"Soll Vorlauftemp {outdoor_temperature}C"
         self._attr_unique_id = f"{entry_id}_flow_temp_{self._sanitize(outdoor_temperature)}"
         self._tracked_entity_ids = [
             f"number.{DOMAIN}_neigung",
